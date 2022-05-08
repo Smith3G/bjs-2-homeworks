@@ -15,7 +15,7 @@ function solveEquation(a, b, c) {
   }
    else if (d === 0) {
     root1 = root2 = -b / (2*a);
-    return arr = [root1, root2];
+    return arr = [root1];
 }
 }
 
