@@ -1,6 +1,7 @@
+'use strict'
 function solveEquation(a, b, c) {
   let arr;
-  // код для задачи №1 писать здесь
+  arr = b ** 2 - 4 * a * c// код для задачи №1 писать здесь
   return arr; // array
 }
 
