@@ -19,10 +19,31 @@ function solveEquation(a, b, c) {
 }
 }
 
+
+
 function calculateTotalMortgage(percent, contribution, amount, date) {
-  let totalAmount;
+  let totalSum // Общая сумма
+  let totalAmount; // Общая сумма, округленная до сотых
+  let S; // Тело кредита
+  let P; // Месячная процентная ставка
+  let payment; // Ежемесячный платеж
+  let now = new Date(); // Сегодняшняя дата
+  
+  
+   function monthDiff(date, now) {
 
-  // код для задачи №2 писать здесь
+    let months;
+   months = (date.getFullYear() - now.getFullYear()) * 12;
+   months += date.getMonth() - now.getMonth();
+    return months; 
+}
 
-  return totalAmount;
+P = percent / (12 * 100);
+S = amount - contribution;
+payment = S * (P + (P / (((1 +P) ** monthDiff(date, now)) - 1)));
+totalSum= payment * monthDiff(date, now);
+totalAmount = totalSum.toFixed(2);
+console.log(+totalAmount);
+
+  return +totalAmount;
 }
