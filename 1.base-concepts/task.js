@@ -28,6 +28,10 @@ function calculateTotalMortgage(percent, contribution, amount, date) {
   let P; // Месячная процентная ставка
   let payment; // Ежемесячный платеж
   let now = new Date(); // Сегодняшняя дата
+
+ if (isNaN(percent)) {
+   return `Параметр "Процентная ставка" содержит неправильное значение "${percent}"`
+ }
   
   
    function monthDiff(date, now) {
