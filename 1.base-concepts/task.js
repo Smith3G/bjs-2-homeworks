@@ -31,6 +31,12 @@ function calculateTotalMortgage(percent, contribution, amount, date) {
 
  if (isNaN(percent)) {
    return `Параметр "Процентная ставка" содержит неправильное значение "${percent}"`
+ } 
+ if (isNaN(contribution)) {
+   return `Параметр "Начальный взнос" содержит неправильное значение "${contribution}"`
+ }
+ if (isNaN(amount)) {
+   return `Параметр "Общая стоимость" содержит неправильное значение "${amount}"`
  }
   
   
