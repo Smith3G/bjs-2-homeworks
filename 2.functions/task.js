@@ -20,7 +20,7 @@ function getArrayParams(arr) {
 }
 
 // Задание 2
-let func = function worker(arr) {
+const func = function worker(arr) {
   let sum = 0;
   for (let i = 0; i < arr.length; i++) {
     sum += arr[i];
@@ -29,17 +29,14 @@ let func = function worker(arr) {
 }
 
 function makeWork(arrOfArr, func) {
+  
 
-  let max = arrOfArr[0];
-  for(let j = o; j < arrOfArr.length; j++) {
-    if ((arrOfArr[j]) > max) {
-      max = arrOfArr[j];
+  let max = func(arrOfArr[0]);
+  for(let j = 0; j < arrOfArr.length; j++) {
+    if (func(arrOfArr[j]) > max) {
+      max = func(arrOfArr[j]);
     }
   }
-
-  // Ваш кода
-  // for ...
-  
   return max;
 }
 
