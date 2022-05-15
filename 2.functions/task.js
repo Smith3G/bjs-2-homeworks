@@ -20,16 +20,22 @@ function getArrayParams(arr) {
 }
 
 // Задание 2
-function worker(arr) {
+let func = function worker(arr) {
   let sum;
-
-  // Ваш код
-
+  for (let i=0; i < arr.length; i++) {
+    sum += arr[i];
+  }
   return sum;
 }
 
 function makeWork(arrOfArr, func) {
   let max;
+
+  for(let j=o; j < arrOfArr.length; j++) {
+    if ((arrOfArr[j]) > max) {
+      max = arrOfArr[j];
+    }
+  }
 
   // Ваш кода
   // for ...
