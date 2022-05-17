@@ -42,3 +42,27 @@ function makeWork(arrOfArr, worker) {
 
 // Задание 3
 
+function worker2(arr) {
+  let min = arr[0];
+  let max = arr[0];
+  for (let i = 0; i < arr.length; i++) {
+    if ((arr[i]) < min) {
+      min = arr[i];
+    } 
+    else if (arr[i] > max) {
+      max = arr[i];
+      } 
+    
+    }
+  return Math.abs(max - min);
+}
+
+function makeWork(arrOfArr, worker2) {
+let max = worker2(arrOfArr[0]);
+  for(let j = 0; j < arrOfArr.length; j++) {
+    if (worker2(arrOfArr[j]) > max) {
+      max = worker2(arrOfArr[j]);
+    }
+  }
+  return max;
+}
