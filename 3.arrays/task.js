@@ -1,9 +1,10 @@
 function compareArrays(arr1, arr2) {
-  let result;
 
-  // Ваш код
+ if (arr1.length === arr2.length) {
+   return arr1.every((value, index) => value === arr2[index])
+ }
+ else return false
 
-  return result; // boolean
 }
 
 function advancedFilter(arr) {
