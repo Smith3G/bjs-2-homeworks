@@ -8,7 +8,14 @@ function compareArrays(arr1, arr2) {
 }
 
 function advancedFilter(arr) {
-  let resultArr;
+  let resultArr1 = arr.filter(function(value) {
+    return value % 3 == 0 && value >0;
+  });
+  let resultArr = resultArr1.map(function(value) {
+    return value * 10;
+  })
+ 
+  
 
   // Ваш код
 
