@@ -5,28 +5,29 @@ class PrintEditionItem {
                this.pagesCount = pagesCount;
                this.state = state;
                this.type = type;
-        }
+        };
   
   fix() {
-      this.state = state * 1.5; 
+      this._state = this._state * 1.5; 
 }
   
 set state(number) {
         if (number < 0) {
-                this.number === 0;
+                this._state = 0;
         } else if (number > 100) {
-                this.number === 100;
+                this._state = 100;
         }
         else {
-                this.number = number;
-        }
-}
+                this._state = number;
+        };
+   };
   
   get state() {
-        return this._state;
-}
 
-}
+        return this._state;
+  };
+
+};
 
 class Magazine extends PrintEditionItem {
         constructor(name, releaseDate, pagesCount) {
@@ -59,3 +60,35 @@ class Magazine extends PrintEditionItem {
           this.type = 'detective';
         }
       };
+
+      class Library {
+        constructor(name, books) {
+          this.name = name;
+          this.books = []
+        }
+        addBook(book) {
+          if (this.state > 30) {
+            this.state.push(books);
+          }
+        }
+        findBookBy(type, value) {
+                let findBook = this.books.find(key => key.type === value);
+
+                if(findBook) {
+                        return findBook;
+                } else {
+                        return null;
+        };
+      };
+    
+
+        giveBookByName(bookName) {
+                let item = this.books.findKey(key => key.name === bookName);
+
+                if (key > -1 ) {
+                        return this.books.splice(key, 1)[0];
+                } else {
+                        return null;
+                };
+          };
+     };
