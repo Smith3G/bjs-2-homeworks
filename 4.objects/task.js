@@ -14,7 +14,7 @@ Student.prototype.addMark = function (mark) {
   
 
 if (this.marks === undefined) {
-  this.mark = [mark];
+  this.marks = [mark];
 
   } else {
 
