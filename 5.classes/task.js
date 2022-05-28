@@ -6,28 +6,29 @@ class PrintEditionItem {
                this.state = state;
                this.type = type;
         };
+
+        fix() {
+          this._state = this._state * 1.5; 
+          };
+
+get state() {
+
+       return this._state;
+    };
   
-  fix() {
-      this._state = this._state * 1.5; 
-}
-  
-set state(number) {
-        if (number < 0) {
+set state(newState) {
+        if (newState < 0) {
                 this._state = 0;
-        } else if (number > 100) {
+        } else if (newState > 100) {
                 this._state = 100;
         }
         else {
-                this._state = number;
+                this._state = newState;
         };
    };
   
-  get state() {
-
-        return this._state;
   };
 
-};
 
 class Magazine extends PrintEditionItem {
         constructor(name, releaseDate, pagesCount) {
@@ -62,17 +63,18 @@ class Magazine extends PrintEditionItem {
       };
 
       class Library {
-        constructor(name, books) {
+        constructor(name, books = []) {
           this.name = name;
-          this.books = []
+          this.books = books;
         }
         addBook(book) {
-          if (this.state > 30) {
-            this.state.push(books);
-          }
-        }
-        findBookBy(type, value) {
-                let findBook = this.books.find(key => key.type === value);
+          if (book.state > 30) {
+
+            this.books.push(book);
+          };
+        };
+        findBookBy (type, value) {
+                let findBook = this.books.find(key => key[type] === value);
 
                 if(findBook) {
                         return findBook;
@@ -80,15 +82,15 @@ class Magazine extends PrintEditionItem {
                         return null;
         };
       };
+      giveBookByName (bookName) {
+
+        let index = this.books.findIndex(key => key.name === bookName);
+
+        if (index > -1) {
+            return this.books.splice(index, 1)[0];
+        } else {
+            return null;
+        };
+    };
     
-
-        giveBookByName(bookName) {
-                let item = this.books.findKey(key => key.name === bookName);
-
-                if (key > -1 ) {
-                        return this.books.splice(key, 1)[0];
-                } else {
-                        return null;
-                };
-          };
      };
