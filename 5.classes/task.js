@@ -8,7 +8,9 @@ class PrintEditionItem {
         };
 
         fix() {
-          this._state = this._state * 1.5; 
+          if(this.state < 100) {
+          this.state = this.state * 1.5; 
+          };
           };
 
 get state() {
@@ -94,3 +96,32 @@ class Magazine extends PrintEditionItem {
     };
     
      };
+
+
+     class Student {
+      constructor(name) {
+             this.name = name;
+             this.marks = [];
+      };
+      setSubject() {
+        this.subject = subject;
+      };
+
+      addMark(mark, subject) {
+  
+       if (mark >= 1 && mark <= 5){
+        this.subject.push(mark);
+      } else { "Ошибка, оценка должна быть числом от 1 до 5"
+        ""
+      };
+    }
+
+
+
+    getAverage() {
+
+      const sum = this.marks.reduce((acc, item) => acc += item);
+      const length = this.marks.length;
+      return sum / length;
+    };
+  }
