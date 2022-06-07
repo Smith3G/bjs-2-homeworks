@@ -49,11 +49,9 @@ start() {
         function checkClock(alarm) {
                 if (alarm.time === this.getCurrentFormattedTime()) alarm.callback();
         }       
-                 if (!this.timerId) {
-                                this.timerID = setInterval(function() {
-                                this.alarmCollection.forEach(item =>check(item))}, 1000)
+                 if (!this.timerId) this.timerID = setInterval(() => this.alarmCollection.forEach(item => check(item)), 1000)
                                 
-                                   }
+                                   
          }
 
 stop() {
@@ -80,14 +78,14 @@ clearAlarms() {
 
 function testCase() {
 	let clock = new AlarmClock();
-	clock.addClock(clock.getCurrentFormattedTime(), () => console.log('Пора вставать!'), 10);
+	clock.addClock(clock.getCurrentFormattedTime(), () => console.log('Пора вставать!'), 20);
 	let currentDate = new Date();
 	currentDate.setMinutes(currentDate.getMinutes() + 1);
 	clock.addClock(clock.getCurrentFormattedTime(currentDate), () => { console.log('Давно Пора встать!'); clock.removeClock(10) }, 10);
 	currentDate = new Date();
 	currentDate.setMinutes(currentDate.getMinutes() + 2);
 	clock.addClock(clock.getCurrentFormattedTime(currentDate),
-		() => { console.log('Давно Давно Пора уже встать!'); clock.stop(); clock.clearAlarms() }, 1000);
+		() => { console.log('Пора уже встать!'); clock.stop(); clock.clearAlarms() }, 2000);
 	clock.printAlarms();
 	clock.start();
 };
