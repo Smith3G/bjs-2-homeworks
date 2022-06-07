@@ -55,11 +55,11 @@ start() {
                                 
                                    }
          }
-// Останавливает выполнение всех звонков
+
 stop() {
         if (this.timerID) {
-                clearInterval(this.timerID); //проверка существования текущего таймера
-                this.timerID = null; // удаление значение идентификтора текущего таймера
+                clearInterval(this.timerID); 
+                this.timerID = null; 
         }
 }
 
