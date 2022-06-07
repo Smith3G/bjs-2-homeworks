@@ -81,7 +81,7 @@ function testCase() {
 	clock.addClock(clock.getCurrentFormattedTime(), () => console.log('Пора вставать!'), 20);
 	let currentDate = new Date();
 	currentDate.setMinutes(currentDate.getMinutes() + 1);
-	clock.addClock(clock.getCurrentFormattedTime(currentDate), () => { console.log('Давно Пора встать!'); clock.removeClock(10) }, 10);
+	clock.addClock(clock.getCurrentFormattedTime(currentDate), () => { console.log('Давно Пора встать!'); clock.removeClock(20) }, 20);
 	currentDate = new Date();
 	currentDate.setMinutes(currentDate.getMinutes() + 2);
 	clock.addClock(clock.getCurrentFormattedTime(currentDate),
