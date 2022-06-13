@@ -2,7 +2,7 @@
 
 
 class AlarmClock {
-        constructor() {   
+        constructor() {
                 this.alarmCollection = [];
                 this.timerId = null;
         };
@@ -11,16 +11,16 @@ class AlarmClock {
         addClock(time, callback, id) {
                 if (!id) {throw new Error ('error text');
         } else if (this.alarmCollection.some(function(value) {
-                        value.id === id; // сравнивает id каждого элемента массива с переданным id(почему то не сравнивает)
+                        return value.id === id; // сравнивает id каждого элемента массива с переданным id(почему то не сравнивает)
                 })) {
                 console.error(`Будильник с данным ${id} уже зарегистрирован!`);
                  return;
                  };
 
                 this.alarmCollection.push({id, time, callback});
-        
+
         };
-        
+
 //удаляет определённый звонок по id
 removeClock(id) {
         let arrLength1 = this.alarmCollection.length; //Длина исходного массива
@@ -48,16 +48,16 @@ start() {
         let check = checkClock.bind(this);
         function checkClock(alarm) {
                 if (alarm.time === this.getCurrentFormattedTime()) alarm.callback();
-        }       
+        }
                  if (!this.timerId) this.timerID = setInterval(() => this.alarmCollection.forEach(item => check(item)), 1000)
-                                
-                                   
+
+
          }
 
 stop() {
         if (this.timerID) {
-                clearInterval(this.timerID); 
-                this.timerID = null; 
+                clearInterval(this.timerID);
+                this.timerID = null;
         }
 }
 
@@ -70,7 +70,7 @@ clearAlarms() {
         this.stop();
         this.alarmCollection = [];
 };
-       
+
 
 };
 
@@ -91,7 +91,3 @@ function testCase() {
 };
 
 testCase();
-
-
-
-
